@@ -5,16 +5,15 @@ if (!function_exists('loadPartials')){
     if (file_exists($path)) {
       require $path;
     }
-}
+  }
 }
 
 
-loadPartials('head');
-loadPartials('navbar');
-loadPartials('showcase');
-loadPartials('topbanner');
-loadPartials('bottombanner');
-loadPartials('footer');
+loadPartials ('head');
+loadPartials ('navbar');
+loadPartials ('topbanner');
+loadPartials ('bottombanner');
+loadPartials ('footer');
 ?>
 
 
@@ -211,10 +210,6 @@ loadPartials('footer');
             </div>
           </div>
         </div>
-        <a href="listings" class="block text-xl text-center">
-          <i class="fa fa-arrow-alt-circle-right"></i>
-          Show All Jobs
-        </a>
       </section>
 
        <!-- Bottom Banner -->
