@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Block direct access to internal folders
+RewriteRule ^(App|Framework|config|vendor)(/|$) - [F,L]
+
+# Redirect requests to the Public folder entrypoint
+RewriteCond %{REQUEST_URI} !^/Public/
+RewriteRule ^(.*)$ /Public/$1 [L,QSA]

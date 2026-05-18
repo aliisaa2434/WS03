@@ -1,1035 +1,531 @@
-/*
-! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
+/* ============================================================
+   WORKOPIA — CUSTOM STYLESHEET
+   Pangalan ng Student: ______________________________
+   Theme Name:          ______________________________
+   ============================================================ */
+
+/* --- Google Fonts Import ---
+   Pumunta sa https://fonts.google.com, pumili ng font,
+   i-copy ang @import link, i-paste dito.
 */
 
-/*
-1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
-2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
-*,
-::before,
-::after {
+
+/* ----------------------------------------------------------------
+   SECTION 1: MGA KULAY (Colors)
+   ----------------------------------------------------------------
+   Palitan ang bawat hex code ng kulay na gusto mo.
+   Tip: https://coolors.co — para pumili ng color palette
+        https://htmlcolorcodes.com — para makita ang hex codes
+   ---------------------------------------------------------------- */
+
+:root {
+  --color-header:       #942E3A;   /* Header at navigation bar */
+  --color-accent:       #3F0EFC;   /* "Post a Job" button at mga highlight */
+  --color-accent-hover: #C24C8F;   /* Hover state ng accent */
+  --color-page-bg:      #F5EDF2;   /* Background ng buong page */
+  --color-card-bg:      #ffffff;   /* Background ng mga card/box */
+  --color-heading:      #361E2A;   /* Kulay ng mga title at heading */
+  --color-body-text:    #4D3547;   /* Regular na body text */
+  --color-link:         #3F0EFC;   /* Mga clickable na links */
+  --color-link-hover:   #942E3A;   /* Hover state ng links */
+  --color-tag-bg:       #EDD6E9;   /* Background ng mga tag/badge */
+  --color-tag-text:     #6A3C56;   /* Text ng mga tag/badge */
+  --color-footer:       #2E1227;   /* Footer background */
+  --color-footer-text:  #F4E8F1;   /* Footer text */
+  --color-border:       #DEC6D8;   /* Border ng mga element */
+  --showcase-overlay: rgba(148, 46, 58, 0.25); /* Hero banner overlay */
+}
+
+
+/* ----------------------------------------------------------------
+  SECTION 2: MGA FONT (Typography)
+   ---------------------------------------------------------------- */
+
+:root {
+  --font-heading: 'Noto Serif', serif;
+  --font-body:    'Inter', sans-serif;
+}
+
+
+/* ----------------------------------------------------------------
+  SECTION 3: HUGIS AT ESTILO (Shape & Style)
+   ---------------------------------------------------------------- */
+
+:root {
+  --border-radius:      10px;
+  --card-shadow:        0 4px 16px rgba(46, 125, 50, 0.12);
+  --card-shadow-hover:  0 8px 28px rgba(46, 125, 50, 0.22);
+  --transition:         0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Theme helper classes */
+.bg-header {
+  background-color: var(--color-header) !important;
+}
+.bg-footer {
+  background-color: var(--color-footer) !important;
+}
+.text-footer-text {
+  color: var(--color-footer-text) !important;
+}
+.border-header {
+  border-color: var(--color-header) !important;
+}
+
+
+/* ================================================================
+   BASE
+   ================================================================ */
+
+*, *::before, *::after {
   box-sizing: border-box;
-  /* 1 */
-  border-width: 0;
-  /* 2 */
-  border-style: solid;
-  /* 2 */
-  border-color: #e5e7eb;
-  /* 2 */
 }
-
-::before,
-::after {
-  --tw-content: '';
-}
-
-/*
-1. Use a consistent sensible line-height in all browsers.
-2. Prevent adjustments of font size after orientation changes in iOS.
-3. Use a more readable tab size.
-4. Use the user's configured `sans` font-family by default.
-5. Use the user's configured `sans` font-feature-settings by default.
-6. Use the user's configured `sans` font-variation-settings by default.
-*/
-
-html {
-  line-height: 1.5;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-  -moz-tab-size: 4;
-  /* 3 */
-  -o-tab-size: 4;
-     tab-size: 4;
-  /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  /* 4 */
-  font-feature-settings: normal;
-  /* 5 */
-  font-variation-settings: normal;
-  /* 6 */
-}
-
-/*
-1. Remove the margin in all browsers.
-2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
-*/
 
 body {
-  margin: 0;
-  /* 1 */
-  line-height: inherit;
-  /* 2 */
+  font-family: var(--font-body) !important;
+  background-color: var(--color-page-bg) !important;
+  color: var(--color-body-text) !important;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
-/*
-1. Add the correct height in Firefox.
-2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
-3. Ensure horizontal rules are visible by default.
-*/
+/* ================================================================
+   TYPOGRAPHY
+   ================================================================ */
 
-hr {
-  height: 0;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  border-top-width: 1px;
-  /* 3 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading) !important;
+  color: var(--color-heading) !important;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
-/*
-Add the correct text decoration in Chrome, Edge, and Safari.
-*/
-
-abbr:where([title]) {
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+p {
+  color: var(--color-body-text) !important;
 }
 
-/*
-Remove the default font size and weight for headings.
-*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-/*
-Reset links to optimize for opt-in styling instead of opt-out.
-*/
+/* ================================================================
+   LINKS
+   ================================================================ */
 
 a {
-  color: inherit;
-  text-decoration: inherit;
+  color: var(--color-link) !important;
+  transition: color var(--transition), opacity var(--transition);
 }
 
-/*
-Add the correct font weight in Edge and Safari.
-*/
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-/*
-1. Use the user's configured `mono` font family by default.
-2. Correct the odd `em` font sizing in all browsers.
-*/
-
-code,
-kbd,
-samp,
-pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
-}
-
-/*
-Add the correct font size in all browsers.
-*/
-
-small {
-  font-size: 80%;
-}
-
-/*
-Prevent `sub` and `sup` elements from affecting the line height in all browsers.
-*/
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/*
-1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
-2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
-3. Remove gaps between table borders by default.
-*/
-
-table {
-  text-indent: 0;
-  /* 1 */
-  border-color: inherit;
-  /* 2 */
-  border-collapse: collapse;
-  /* 3 */
-}
-
-/*
-1. Change the font styles in all browsers.
-2. Remove the margin in Firefox and Safari.
-3. Remove default padding in all browsers.
-*/
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  /* 1 */
-  font-feature-settings: inherit;
-  /* 1 */
-  font-variation-settings: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  font-weight: inherit;
-  /* 1 */
-  line-height: inherit;
-  /* 1 */
-  color: inherit;
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  padding: 0;
-  /* 3 */
-}
-
-/*
-Remove the inheritance of text transform in Edge and Firefox.
-*/
-
-button,
-select {
-  text-transform: none;
-}
-
-/*
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Remove default button styles.
-*/
-
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button;
-  /* 1 */
-  background-color: transparent;
-  /* 2 */
-  background-image: none;
-  /* 2 */
-}
-
-/*
-Use the modern Firefox focus style for all focusable elements.
-*/
-
-:-moz-focusring {
-  outline: auto;
-}
-
-/*
-Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
-*/
-
-:-moz-ui-invalid {
-  box-shadow: none;
-}
-
-/*
-Add the correct vertical alignment in Chrome and Firefox.
-*/
-
-progress {
-  vertical-align: baseline;
-}
-
-/*
-Correct the cursor style of increment and decrement buttons in Safari.
-*/
-
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/*
-1. Correct the odd appearance in Chrome and Safari.
-2. Correct the outline style in Safari.
-*/
-
-[type='search'] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
-}
-
-/*
-Remove the inner padding in Chrome and Safari on macOS.
-*/
-
-::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/*
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Change font properties to `inherit` in Safari.
-*/
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
-}
-
-/*
-Add the correct display in Chrome and Safari.
-*/
-
-summary {
-  display: list-item;
-}
-
-/*
-Removes the default spacing and border for appropriate elements.
-*/
-
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
-  margin: 0;
-}
-
-fieldset {
-  margin: 0;
-  padding: 0;
-}
-
-legend {
-  padding: 0;
-}
-
-ol,
-ul,
-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/*
-Reset default styling for dialogs.
-*/
-
-dialog {
-  padding: 0;
-}
-
-/*
-Prevent resizing textareas horizontally by default.
-*/
-
-textarea {
-  resize: vertical;
-}
-
-/*
-1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
-2. Set the default placeholder color to the user's configured gray 400 color.
-*/
-
-input::-moz-placeholder, textarea::-moz-placeholder {
-  opacity: 1;
-  /* 1 */
-  color: #9ca3af;
-  /* 2 */
-}
-
-input::placeholder,
-textarea::placeholder {
-  opacity: 1;
-  /* 1 */
-  color: #9ca3af;
-  /* 2 */
-}
-
-/*
-Set the default cursor for buttons.
-*/
-
-button,
-[role="button"] {
-  cursor: pointer;
-}
-
-/*
-Make sure disabled buttons don't get the pointer cursor.
-*/
-
-:disabled {
-  cursor: default;
-}
-
-/*
-1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
-2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
-   This can trigger a poorly considered lint error in some tools but is included by design.
-*/
-
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
-  display: block;
-  /* 1 */
-  vertical-align: middle;
-  /* 2 */
-}
-
-/*
-Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
-*/
-
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Make elements with the HTML hidden attribute stay hidden by default */
-
-[hidden] {
-  display: none;
-}
-
-*, ::before, ::after {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-}
-
-::backdrop {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-}
-
-.container {
-  width: 100%;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
-}
-
-.relative {
-  position: relative;
-}
-
-.z-10 {
-  z-index: 10;
-}
-
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
-}
-
-.mx-6 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.mt-20 {
-  margin-top: 5rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-
-.block {
-  display: block;
-}
-
-.flex {
-  display: flex;
-}
-
-.grid {
-  display: grid;
-}
-
-.h-72 {
-  height: 18rem;
-}
-
-.w-full {
-  width: 100%;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.list-disc {
-  list-style-type: disc;
-}
-
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
+a:hover {
+  color: var(--color-link-hover) !important;
 }
 
-.justify-between {
-  justify-content: space-between;
+/* Nav links stay white since they're on the dark header */
+header a,
+header nav a {
+  color: #ffffff !important;
 }
 
-.gap-4 {
-  gap: 1rem;
+header nav a:hover {
+  color: #c8e6c9 !important;
 }
 
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.rounded {
-  border-radius: 0.25rem;
-}
+/* ================================================================
+   HEADER  — overrides bg-blue-900
+   ================================================================ */
 
-.rounded-full {
-  border-radius: 9999px;
+header,
+header.bg-blue-900 {
+  background-color: var(--color-header) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
+/* ================================================================
+   TOP BANNER — overrides bg-blue-900 on section
+   ================================================================ */
 
-.border {
-  border-width: 1px;
+section.bg-blue-900 {
+  background-color: var(--color-header) !important;
 }
 
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+section.bg-blue-900 h2,
+section.bg-blue-900 p {
+  color: #ffffff !important;
 }
 
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
+/* ================================================================
+   BOTTOM BANNER — overrides bg-blue-800
+   ================================================================ */
 
 .bg-blue-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+  background-color: var(--color-header) !important;
+  border-left: 5px solid var(--color-footer) !important;
+  border-radius: var(--border-radius) !important;
 }
 
-.bg-blue-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 58 138 / var(--tw-bg-opacity));
+.bg-blue-800 h2,
+.bg-blue-800 p {
+  color: #ffffff !important;
 }
 
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+/* ================================================================
+   ACCENT BUTTON — overrides bg-yellow-500 / bg-blue-500
+   ================================================================ */
+
+.bg-yellow-500,
+.bg-blue-500,
+.bg-green-500 {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background-color var(--transition),
+              box-shadow var(--transition),
+              transform var(--transition) !important;
 }
 
-.bg-green-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+.bg-yellow-500:hover,
+.hover\:bg-yellow-600:hover,
+.bg-blue-500:hover,
+.hover\:bg-blue-600:hover,
+.bg-green-500:hover,
+.hover\:bg-green-600:hover {
+  background-color: var(--color-accent-hover) !important;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.4) !important;
+  transform: translateY(-1px);
 }
 
-.bg-indigo-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(224 231 255 / var(--tw-bg-opacity));
+/* Cancel / Delete buttons keep their red color */
+.bg-red-500 {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+.hover\:bg-red-600:hover,
+.bg-red-500:hover {
+  background-color: #dc2626 !important;
 }
 
-.bg-red-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+/* ================================================================
+   PAGE BACKGROUND — overrides bg-gray-100
+   ================================================================ */
+
+.bg-gray-100,
+body.bg-gray-100 {
+  background-color: var(--color-page-bg) !important;
 }
+
+/* But bg-gray-100 INSIDE cards (job detail list) stays slightly grey */
+ul.bg-gray-100 {
+  background-color: #f0f5f0 !important;
+  border-radius: var(--border-radius) !important;
+}
+
+/* ================================================================
+   CARDS — overrides bg-white
+   ================================================================ */
 
 .bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: var(--color-card-bg) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--card-shadow) !important;
+  border: 1px solid rgba(46, 125, 50, 0.12);
+  transition: box-shadow var(--transition),
+              transform var(--transition),
+              border-color var(--transition) !important;
 }
 
-.bg-yellow-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+.bg-white:hover {
+  box-shadow: var(--card-shadow-hover) !important;
+  transform: translateY(-3px);
+  border-color: rgba(67, 160, 71, 0.35);
 }
 
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+/* ================================================================
+   TAGS / BADGES — overrides bg-indigo-100
+   ================================================================ */
+
+.bg-indigo-100 {
+  background-color: var(--color-tag-bg) !important;
+  border: 1px solid rgba(46, 125, 50, 0.25);
+  transition: background-color var(--transition) !important;
 }
 
-.bg-green-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+.bg-indigo-100:hover {
+  background-color: #a5d6a7 !important;
 }
 
-.bg-cover {
-  background-size: cover;
-}
-
-.bg-center {
-  background-position: center;
-}
-
-.bg-no-repeat {
-  background-repeat: no-repeat;
-}
-
-.p-3 {
-  padding: 0.75rem;
-}
-
-.p-4 {
-  padding: 1rem;
-}
-
-.p-8 {
-  padding: 2rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.py-2\.5 {
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
-}
-
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.pl-6 {
-  padding-left: 1.5rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.font-bold {
-  font-weight: 700;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.font-semibold {
+.text-indigo-700,
+.text-indigo-800 {
+  color: var(--color-tag-text) !important;
   font-weight: 600;
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+/* Location badge (Local / Remote) overrides bg-blue-500 in spans */
+span.bg-blue-500 {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  transform: none !important;    /* don't lift tiny inline badges */
+  box-shadow: none !important;
 }
 
-.text-blue-700 {
-  --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity));
-}
+/* ================================================================
+   TEXT COLOUR OVERRIDES
+   ================================================================ */
 
+.text-blue-700,
+.text-blue-500,
 .text-blue-900 {
-  --tw-text-opacity: 1;
-  color: rgb(30 58 138 / var(--tw-text-opacity));
+  color: var(--color-link) !important;
 }
 
+.text-gray-700,
+.text-gray-500,
 .text-gray-200 {
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
+  color: var(--color-body-text) !important;
+  opacity: 0.85;
 }
 
-.text-gray-500 {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
+/* ================================================================
+   BORDER RADIUS UTILITIES
+   ================================================================ */
+
+.rounded,
+.rounded-lg {
+  border-radius: var(--border-radius) !important;
 }
 
-.text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
+.rounded-full {
+  border-radius: 9999px !important;
 }
 
-.text-indigo-700 {
-  --tw-text-opacity: 1;
-  color: rgb(67 56 202 / var(--tw-text-opacity));
+/* ================================================================
+   BUTTONS (general)
+   ================================================================ */
+
+button {
+  font-family: var(--font-body) !important;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--border-radius) !important;
+  transition: background-color var(--transition),
+              box-shadow var(--transition),
+              transform var(--transition) !important;
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+button:active {
+  transform: translateY(0) scale(0.97) !important;
 }
 
-.text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
+/* ================================================================
+   FORM INPUTS
+   ================================================================ */
+
+input,
+select,
+textarea {
+  font-family: var(--font-body) !important;
+  border: 1.5px solid var(--color-border) !important;
+  border-radius: var(--border-radius) !important;
+  transition: border-color var(--transition),
+              box-shadow var(--transition) !important;
+  outline: none !important;
 }
 
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.18) !important;
 }
 
-.shadow-sm {
-  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
-}
+/* ================================================================
+   SHOWCASE HERO OVERLAY
+   ================================================================ */
 
 .overlay {
   position: absolute;
+  inset: 0;
+  background-color: var(--showcase-overlay) !important;
+}
+
+/* Showcase text stays white regardless of heading color variable */
+.showcase h2, p {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+
+footer,
+.bg-indigo-900 {
+  background-color: var(--color-footer) !important;
+  color: var(--color-footer-text) !important;
+  border-top: 3px solid var(--color-header) !important;
+}
+
+footer p {
+  color: var(--color-footer-text) !important;
+}
+
+footer a {
+  color: var(--color-accent) !important;
+}
+
+/* ================================================================
+   FADE-IN ANIMATION ON CARDS
+   ================================================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.grid .bg-white {
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.grid .bg-white:nth-child(1) { animation-delay: 0.05s; }
+.grid .bg-white:nth-child(2) { animation-delay: 0.10s; }
+.grid .bg-white:nth-child(3) { animation-delay: 0.15s; }
+.grid .bg-white:nth-child(4) { animation-delay: 0.20s; }
+.grid .bg-white:nth-child(5) { animation-delay: 0.25s; }
+.grid .bg-white:nth-child(6) { animation-delay: 0.30s; }
+
+/* ================================================================
+   SCROLLBAR
+   ================================================================ */
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-page-bg); }
+::-webkit-scrollbar-thumb {
+  background: #a5d6a7;
+  border-radius: 9999px;
+  border: 2px solid var(--color-page-bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* ================================================================
+   SELECTION
+   ================================================================ */
+
+::selection {
+  background-color: rgba(67, 160, 71, 0.25);
+  color: var(--color-heading);
+}
+
+/* Small layout tweaks requested by user */
+/* Make header/nav items more spacious */
+.site-header {
+  padding: 0.5rem 0;
+}
+.site-header .container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.site-header .container > .flex {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.site-header .nav-actions a,
+.site-header .nav-actions button {
+  padding: 0.5rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ensure cards have comfortable internal spacing as a fallback */
+.bg-white.p-6, .bg-white.p-8 {
+  padding: 1.5rem !important;
+}
+.bg-white .p-6, .bg-white .p-8 {
+  padding: 1.25rem !important;
+}
+
+@media (max-width: 640px) {
+  .site-header .nav-actions a,
+  .site-header .nav-actions button { padding: 0.45rem 0.6rem; }
+}
+
+/* ================================================================
+   NAVBAR / FOOTER / CARDS — Custom tweaks
+   ================================================================ */
+
+.site-header {
+  /* Use single header color from variables */
+  background-color: var(--color-header) !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18) !important;
+  position: sticky;
   top: 0;
-  left: 0;
+  z-index: 60;
+}
+.site-header .brand { color: #ffffff; text-decoration: none; }
+.site-header .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+.site-header a { color: #ffffff !important; }
+.site-header a:hover { color: #c8e6c9 !important; }
+
+/* Ensure footer sits at the bottom when page content is short */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body > footer {
+  margin-top: auto;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  /* Adjust opacity as needed */
-  z-index: 1;
 }
 
-.showcase {
-  background-image: url('../images/showcase.jpg');
+/* Make top-level sections grow to fill available space so footer stays at bottom */
+body > section {
+  flex: 1 0 auto;
 }
 
-.hover\:bg-blue-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+/* If templates use a main wrapper, make it fill available space */
+.site-main {
+  flex: 1 0 auto;
+}
+/* Ensure main uses column layout so child sections can expand vertically */
+.site-main {
+  display: flex;
+  flex-direction: column;
 }
 
-.hover\:bg-indigo-200:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(199 210 254 / var(--tw-bg-opacity));
+/* Let the direct section inside site-main fill remaining space */
+.site-main > section {
+  flex: 1 0 auto;
 }
 
-.hover\:bg-yellow-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(202 138 4 / var(--tw-bg-opacity));
+/* Increase padding inside cards to improve spacing */
+/* Targets common Tailwind padding utility inside card containers */
+.bg-white .p-4 {
+  padding: 1.25rem !important; /* 20px */
 }
 
-.hover\:bg-red-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+/* If a card does not include an internal p-4, ensure it still has comfortable padding */
+.bg-white > :not(.p-4) {
+  padding: 1rem;
 }
 
-.hover\:bg-green-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+/* Small responsive tweak: ensure header compact on small screens */
+@media (max-width: 640px) {
+  .site-header .brand { font-size: 1.125rem; }
+  .site-header .nav-actions a, .site-header .nav-actions button { font-size: 0.95rem; }
 }
 
-.hover\:underline:hover {
-  text-decoration-line: underline;
-}
+/* ================================================================
+   STATUS BADGES
+   ================================================================ */
 
-.hover\:shadow-md:hover {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
+.bg-green-100 { background-color: #dcfce7 !important; }
+.text-green-800 { color: #166534 !important; font-weight: 600; }
 
-.focus\:outline-none:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
+/* ================================================================
+   SECTION TITLE BORDER (Recent Jobs / All Jobs heading)
+   ================================================================ */
 
-@media (min-width: 768px) {
-  .md\:mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .md\:w-500 {
-    width: 500px;
-  }
-
-  .md\:w-600 {
-    width: 600px;
-  }
-
-  .md\:w-auto {
-    width: auto;
-  }
-
-  .md\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+.border.border-gray-300 {
+  border-color: var(--color-border) !important;
+  border-radius: var(--border-radius) !important;
+  background-color: var(--color-card-bg);
+  box-shadow: var(--card-shadow);
 }

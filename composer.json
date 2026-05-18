@@ -1,0 +1,17 @@
+{
+    "name": "alessandra/ws03-php",
+    "description": "Job Listing PHP Project",
+    "authors": [
+        {
+            "name": "aliisaa2434",
+            "email": "alessandraverdillo.neust@email.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "Framework\\Middleware\\": "Framework/Middleware/",
+            "App\\": "App/"
+        }
+    }
+}
